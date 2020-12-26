@@ -2,9 +2,10 @@
   /* Visit https://aka.ms/tsconfig.json to read more about this file */
   "compilerOptions": {
     /* Basic Options */
-    "target": "ES2019",
+    "target": "es2017",
     "module": "esnext",
     "declaration": true,
+    "sourceMap": true,
     "outDir": "./dist",
     "rootDir": "./src",
     "removeComments": true,

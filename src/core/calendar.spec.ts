@@ -1,4 +1,6 @@
 import dayjs from 'dayjs'
+import { flatten } from 'lodash'
+
 import { strictEqual, deepStrictEqual } from 'power-assert'
 
 import zh from '../locale/zh'
@@ -78,7 +80,7 @@ describe('test core/calendar.js', function () {
       ['2021-01-02', 34]
     ]
 
-    const dates = calendar.getMonthCalendar(2020, 12).flat()
+    const dates = flatten(calendar.getMonthCalendar(2020, 12))
 
     cases.forEach(([time, index]) => {
       strictEqual(dayjs(dates[index]).format('YYYY-MM-DD'), time, '日期生成异常')
@@ -99,7 +101,7 @@ describe('test core/calendar.js', function () {
       ['2020-12-05', 34]
     ]
 
-    const dates = calendar.getPreviousMonthCalendar(2020, 12).flat()
+    const dates = flatten(calendar.getPreviousMonthCalendar(2020, 12))
 
     cases.forEach(([time, index]) => {
       strictEqual(dayjs(dates[index]).format('YYYY-MM-DD'), time, '日期生成异常')
@@ -120,7 +122,7 @@ describe('test core/calendar.js', function () {
       ['2021-01-30', 34]
     ]
 
-    const dates = calendar.getNextMonthCalendar(2020, 12).flat()
+    const dates = flatten(calendar.getNextMonthCalendar(2020, 12))
 
     cases.forEach(([time, index]) => {
       strictEqual(dayjs(dates[index]).format('YYYY-MM-DD'), time, '日期生成异常')

@@ -7,10 +7,7 @@ module.exports = {
   name: pkg.name,
   preset: 'ts-jest',
   coverageDirectory: 'coverage',
-  coverageReporters: ['html', 'lcov', 'text'],
+  coverageReporters: ['html'],
   testEnvironment: 'node',
-  moduleNameMapper: {
-    [`^${pkg.name}$`]: '<rootDir>/src/index.ts'
-  },
   moduleFileExtensions: ['ts', 'js', 'json']
 }

@@ -1,0 +1,12 @@
+dist: xenial
+os: linux
+language: node_js
+node_js:
+  - 12
+  - 10
+before_install:
+  - npm i codecov -g
+script:
+  - npm run ci
+after_success:
+  - codecov -f coverage/*.json
