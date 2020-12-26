@@ -1,13 +1,13 @@
 # @zhengxs/calendar-data
 
-> 支持 Nodejs 和浏览器环境运行。
+
 
 [![lang](https://img.shields.io/badge/lang-typescript-informational)](https://www.typescriptlang.org/)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 [![npm version](https://badge.fury.io/js/%40zhengxs%2Fcalendar-data.svg)](https://www.npmjs.com/package/%40zhengxs%2Fcalendar-data)
 [![Downloads](https://img.shields.io/npm/dm/%40zhengxs%2Fcalendar-data.svg)](https://www.npmjs.com/package/%40zhengxs%2Fcalendar-data)
 
-一个轻量的日历数据生成的 JavaScript 库，支持国际化的功能。
+一个轻量的日历数据生成的 JavaScript 库，支持国际化的功能。支持 Nodejs 和浏览器。
 
 - 🌐 国际化 I18n
 
