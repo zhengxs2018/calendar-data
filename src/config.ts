@@ -1,5 +1,8 @@
 import { SUNDAY } from './common/constants'
 
+/**
+ * @private
+ */
 export interface Configuration {
   /**
    * 一周开始的时间

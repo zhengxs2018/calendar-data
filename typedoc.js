@@ -2,7 +2,7 @@ const pkg = require('./package.json')
 
 module.exports = {
   name: pkg.name,
-  mode: 'modules',
+  mode: 'file',
   readme: './README.md',
   gitRevision: 'master',
   out: 'doc',
@@ -10,6 +10,6 @@ module.exports = {
   excludePrivate: true,
   excludeExternals: true,
   excludeNotExported: true,
-  exclude: ['src/index.ts', '**/*.spec.ts', '**/*.test.ts'],
+  exclude: ['**/*.spec.ts', '**/*.test.ts'],
   ignoreCompilerErrors: true
 }

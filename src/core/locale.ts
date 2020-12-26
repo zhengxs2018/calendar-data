@@ -10,7 +10,11 @@ export interface Locale {
   weekdaysAbbr: string[]
 }
 
-// global loaded locale
+/**
+ * global loaded locale
+ *
+ * @private
+ */
 const LS: Record<string, Locale> = {
   zh: zh,
   'zh-cn': zh

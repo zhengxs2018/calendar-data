@@ -40,5 +40,7 @@ export const WEEKDAYS = [SUNDAY, MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, S
 
 /**
  * 双周
+ *
+ * @private
  */
 export const DOUBLE_WEEKDAYS = WEEKDAYS.concat(WEEKDAYS)
