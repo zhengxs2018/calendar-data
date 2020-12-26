@@ -21,6 +21,7 @@
     "preversion": "npm run lint && npm test",
     "postversion": "git push --follow-tags origin master",
     "prepublishOnly": "npm run build",
+    "release": "npm version minor && npm publish && gh-pages -d ./doc -t",
     "canary": "npm publish --tag=next",
     "beta": "npm publish --tag=beta"
   },
