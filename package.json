@@ -1,6 +1,6 @@
 {
   "name": "@zhengxs/calendar-data",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "Calendar data generator",
   "main": "./dist/calendar-data.js",
   "module": "./dist/calendar-data.esm.js",
@@ -37,6 +37,9 @@
     "*.{js,json,ts,md}": [
       "prettier -cw"
     ]
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "peerDependencies": {
     "tslib": "^2.0.3"
