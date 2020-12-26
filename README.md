@@ -1,11 +1,11 @@
 # @zhengxs/calendar-data
 
-
-
 [![lang](https://img.shields.io/badge/lang-typescript-informational)](https://www.typescriptlang.org/)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 [![npm version](https://badge.fury.io/js/%40zhengxs%2Fcalendar-data.svg)](https://www.npmjs.com/package/%40zhengxs%2Fcalendar-data)
 [![Downloads](https://img.shields.io/npm/dm/%40zhengxs%2Fcalendar-data.svg)](https://www.npmjs.com/package/%40zhengxs%2Fcalendar-data)
+[![codecov](https://codecov.io/gh/zhengxs2018/calendar-data/branch/main/graph/badge.svg?token=JBYVAK2RRG)](https://codecov.io/gh/zhengxs2018/calendar-data)
+[![Build Status](https://travis-ci.com/zhengxs2018/calendar-data.svg?branch=main)](https://travis-ci.com/zhengxs2018/calendar-data)
 
 一个轻量的日历数据生成的 JavaScript 库，支持国际化的功能。支持 Nodejs 和浏览器。
 
