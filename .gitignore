@@ -1,0 +1,12 @@
+.DS_Store
+node_modules/
+
+.history
+
+yarn.lock
+
+backup*
+coverage
+
+dist
+

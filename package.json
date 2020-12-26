@@ -1,0 +1,81 @@
+{
+  "name": "@zhengxs/calendar-data",
+  "version": "1.0.0",
+  "description": "Calendar data generator",
+  "main": "./dist/calendar-data.js",
+  "module": "./dist/calendar-data.esm.js",
+  "types": "./dist/index.d.ts",
+  "keywords": [
+    "calendar",
+    "data"
+  ],
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development rollup -cw rollup.config.js",
+    "build": "cross-env NODE_ENV=production rollup -c rollup.config.js",
+    "doc": "typedoc --options typedoc.js",
+    "lint": "prettier . -cw",
+    "format": "prettier . -w",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "cov": "jest --coverage",
+    "preversion": "npm run lint && npm test",
+    "postversion": "git push --follow-tags origin master",
+    "prepublishOnly": "npm run build",
+    "canary": "npm publish --tag=next",
+    "beta": "npm publish --tag=beta"
+  },
+  "files": [
+    "dist",
+    "LICENSE"
+  ],
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,json,ts,md}": [
+      "prettier -cw"
+    ]
+  },
+  "peerDependencies": {
+    "tslib": "^2.0.3"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^17.0.0",
+    "@rollup/plugin-json": "^4.0.2",
+    "@rollup/plugin-node-resolve": "^11.0.1",
+    "@rollup/plugin-replace": "^2.3.1",
+    "@types/power-assert": "^1.5.3",
+    "core-js": "^3.6.4",
+    "cross-env": "^7.0.2",
+    "dayjs": "^1.9.7",
+    "husky": "^4.2.3",
+    "jest": "^26.0.1",
+    "lint-staged": "^10.0.8",
+    "lodash": "^4.17.15",
+    "parse-pkg-name": "^2.0.0",
+    "power-assert": "^1.6.1",
+    "prettier": "^2.0.5",
+    "rollup": "^2.1.0",
+    "rollup-plugin-clear": "^2.0.7",
+    "rollup-plugin-eslint": "^7.0.0",
+    "rollup-plugin-filesize": "^9.0.0",
+    "rollup-plugin-node-externals": "^2.1.3",
+    "rollup-plugin-progress": "^1.1.1",
+    "rollup-plugin-terser": "^7.0.2",
+    "rollup-plugin-typescript2": "^0.29.0",
+    "rollup-plugin-visualizer": "^4.0.4",
+    "ts-jest": "^26.0.0",
+    "tslib": "^2.0.3",
+    "typedoc": "^0.19.2",
+    "typedoc-plugin-nojekyll": "^1.0.1",
+    "typescript": "^4.1.3"
+  },
+  "author": {
+    "name": "zhengxs",
+    "email": "zhengxs2018@foxmail.com"
+  },
+  "license": "MIT"
+}
