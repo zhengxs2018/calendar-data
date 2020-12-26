@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calendar Example</title>
+    <style>
+      .calendar {
+        width: 170px;
+      }
+
+      .header {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 6px;
+      }
+
+      .header .time {
+        justify-content: space-between;
+      }
+
+      .cell {
+        text-align: center;
+        color: #a1a1a1;
+      }
+
+      .cell.current-month {
+        text-align: center;
+        color: #333;
+      }
+
+      .cell.today {
+        color: red;
+      }
+
+      table {
+        /* border-collapse: collapse; */
+        border: 1px solid #eee;
+        border-spacing: 0;
+      }
+
+      th,
+      td {
+        border: 1px solid #eee;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="calendar">
+      <div class="header">
+        <div class="time"></div>
+        <div>
+          <button onclick="handlePreviousMonth()">&lt;&lt;</button>
+          <button onclick="handleNextMonth()">&gt;&gt;</button>
+        </div>
+      </div>
+      <table class="table">
+        <thead>
+          <tr></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+
+    <script src="https://unpkg.com/@zhengxs/calendar-data@0.1.0/dist/calendar-data.umd.js"></script>
+    <script>
+      const now = new Date()
+
+      let currentYear = now.getFullYear()
+      let currentMonth = now.getMonth() + 1
+
+      const calendar = calendar_data.create({
+        // 在这里可以自定义返回的内容
+        iteratee(d, ctx) {
+          const year = d.getFullYear()
+          const month = d.getMonth()
+          const date = d.getDate()
+
+          return {
+            date: date,
+            isToday: isToday(year, month, date),
+            isCurrentMonth: year === ctx.year && month + 1 === ctx.month
+          }
+        }
+      })
+
+      window.onload = function () {
+        renderCurrentTime()
+        renderCalendarHead()
+        renderCalendarTable()
+      }
+
+      function handleNextMonth() {
+        const [year, month] = calendar_data.getNextMonth(currentYear, currentMonth)
+        currentYear = year
+        currentMonth = month
+        renderCurrentTime()
+        renderCalendarTable()
+      }
+
+      function handlePreviousMonth() {
+        const [year, month] = calendar_data.getPreviousMonth(currentYear, currentMonth)
+        currentYear = year
+        currentMonth = month
+        renderCurrentTime()
+        renderCalendarTable()
+      }
+
+      function renderCurrentTime() {
+        const time = `${currentYear}-${currentMonth.toString().padStart(2, '0')}`
+        document.querySelector('.time').innerText = time
+      }
+
+      function renderCalendarHead(date) {
+        const thead = document.querySelector('thead > tr')
+        calendar.getWeekHead().forEach((head) => {
+          const th = document.createElement('th')
+          th.innerText = head.abbr
+          thead.appendChild(th)
+        })
+      }
+
+      function renderCalendarTable() {
+        const tbody = document.querySelector('tbody')
+        tbody.innerHTML = null
+
+        const views = calendar.getMonthCalendar(currentYear, currentMonth)
+        views.forEach((cell) => {
+          const tr = document.createElement('tr')
+          cell.forEach((cell) => {
+            const td = document.createElement('td')
+
+            td.classList.add('cell')
+            if (cell.isToday) {
+              td.classList.add('today')
+            }
+            if (cell.isCurrentMonth) {
+              td.classList.add('current-month')
+            }
+            td.innerText = cell.date
+            tr.appendChild(td)
+          })
+
+          tbody.appendChild(tr)
+        })
+      }
+
+      function isToday(year, month, date) {
+        return now.getFullYear() === year && now.getMonth() === month && now.getDate() === date
+      }
+    </script>
+  </body>
+</html>
