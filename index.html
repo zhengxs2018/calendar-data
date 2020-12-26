@@ -1,0 +1,230 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>@zhengxs/calendar-data</title>
+	<meta name="description" content="Documentation for @zhengxs/calendar-data">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="assets/js/search.json" data-base=".">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="index.html" class="title">@zhengxs/calendar-data</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="globals.html">Globals</a>
+				</li>
+			</ul>
+			<h1>@zhengxs/calendar-data</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<div class="tsd-panel tsd-typography">
+				<a href="#zhengxscalendar-data" id="zhengxscalendar-data" style="color: inherit; text-decoration: none;">
+					<h1>@zhengxs/calendar-data</h1>
+				</a>
+				<blockquote>
+					<p>支持 Nodejs 和浏览器环境运行。</p>
+				</blockquote>
+				<p><a href="https://www.typescriptlang.org/"><img src="https://img.shields.io/badge/lang-typescript-informational" alt="lang"></a>
+					<a href="https://github.com/prettier/prettier"><img src="https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square" alt="code style: prettier"></a>
+					<a href="https://www.npmjs.com/package/%40zhengxs%2Fcalendar-data"><img src="https://badge.fury.io/js/%40zhengxs%2Fcalendar-data.svg" alt="npm version"></a>
+				<a href="https://www.npmjs.com/package/%40zhengxs%2Fcalendar-data"><img src="https://img.shields.io/npm/dm/%40zhengxs%2Fcalendar-data.svg" alt="Downloads"></a></p>
+				<p>一个轻量的日历数据生成的 JavaScript 库，支持国际化的功能。</p>
+				<ul>
+					<li>🌐 国际化 I18n</li>
+				</ul>
+				<a href="#快速开始" id="快速开始" style="color: inherit; text-decoration: none;">
+					<h2>快速开始</h2>
+				</a>
+				<a href="#安装" id="安装" style="color: inherit; text-decoration: none;">
+					<h3>安装</h3>
+				</a>
+				<pre><code class="language-bash">$ npm install @zhengxs/calendar-data --save</code></pre>
+				<a href="#使用" id="使用" style="color: inherit; text-decoration: none;">
+					<h3>使用</h3>
+				</a>
+				<pre><code class="language-javascript"><span class="hljs-keyword">import</span> calendar <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@zhengxs/calendar-data&#x27;</span>
+
+<span class="hljs-comment">// 全局设置每一周的开始</span>
+Calendar.config.firstWeekDay = <span class="hljs-number">0</span>
+
+<span class="hljs-comment">// 全局设置默认语言</span>
+Calendar.config.locale = <span class="hljs-string">&#x27;cn&#x27;</span>
+
+<span class="hljs-comment">// 全局添加语种</span>
+Calendar.locale({
+  <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;en&#x27;</span>,
+  <span class="hljs-attr">weekdays</span>: [<span class="hljs-string">&#x27;Sunday&#x27;</span>, <span class="hljs-string">&#x27;Monday&#x27;</span>, <span class="hljs-string">&#x27;Tuesday&#x27;</span>, <span class="hljs-string">&#x27;Wednesday&#x27;</span>, <span class="hljs-string">&#x27;Thursday&#x27;</span>, <span class="hljs-string">&#x27;Friday&#x27;</span>, <span class="hljs-string">&#x27;Saturday&#x27;</span>],
+  <span class="hljs-attr">weekdaysShort</span>: [<span class="hljs-string">&#x27;Sun&#x27;</span>, <span class="hljs-string">&#x27;Mon&#x27;</span>, <span class="hljs-string">&#x27;Tues&#x27;</span>, <span class="hljs-string">&#x27;Wed&#x27;</span>, <span class="hljs-string">&#x27;Thurs&#x27;</span>, <span class="hljs-string">&#x27;Fri&#x27;</span>, <span class="hljs-string">&#x27;Sat&#x27;</span>],
+  <span class="hljs-attr">weekdaysAbbr</span>: [<span class="hljs-string">&#x27;Sun&#x27;</span>, <span class="hljs-string">&#x27;Mon&#x27;</span>, <span class="hljs-string">&#x27;Tue&#x27;</span>, <span class="hljs-string">&#x27;Wed&#x27;</span>, <span class="hljs-string">&#x27;Thu&#x27;</span>, <span class="hljs-string">&#x27;Fri&#x27;</span>, <span class="hljs-string">&#x27;Sat&#x27;</span>]
+})
+
+<span class="hljs-keyword">const</span> calendar = Calendar.create({
+  <span class="hljs-comment">// 每一周的开始（0 表示星期一，6 表示星期天）</span>
+  <span class="hljs-attr">firstWeekDay</span>: <span class="hljs-number">0</span>,
+  <span class="hljs-comment">// 单个日历显示的周数量</span>
+  <span class="hljs-attr">visibleWeeksCount</span>: <span class="hljs-number">6</span>,
+  <span class="hljs-comment">// 设置语言</span>
+  <span class="hljs-attr">locale</span>: <span class="hljs-string">&#x27;en&#x27;</span>
+})
+
+<span class="hljs-comment">// 获取日历上头部的内容</span>
+calendar.getWeekHead(<span class="hljs-number">2020</span>, <span class="hljs-number">12</span>)
+<span class="hljs-comment">// -&gt;</span>
+<span class="hljs-comment">// [</span>
+<span class="hljs-comment">//   [Date(2020, 11, 29), ..., Date(2020, 12, 05)],</span>
+<span class="hljs-comment">//   [Date(2020, 12, 06), ..., Date(2020, 12, 12)],</span>
+<span class="hljs-comment">//   [Date(2020, 12, 13), ..., Date(2020, 12, 19)],</span>
+<span class="hljs-comment">//   [Date(2020, 12, 20), ..., Date(2020, 12, 26)],</span>
+<span class="hljs-comment">//   [Date(2020, 12, 27), ..., Date(2020, 01, 02)],</span>
+<span class="hljs-comment">//   [Date(2021, 01, 03), ..., Date(2021, 01, 09)],</span>
+<span class="hljs-comment">// ]</span>
+
+<span class="hljs-comment">// 生成 2020-12 月的日历数据</span>
+calendar.getMonthCalendar(<span class="hljs-number">2020</span>, <span class="hljs-number">12</span>)
+<span class="hljs-comment">// -&gt; 一个二维数组</span>
+<span class="hljs-comment">// [</span>
+<span class="hljs-comment">//   [Date(2020, 11, 29), ..., Date(2020, 12, 05)],</span>
+<span class="hljs-comment">//   [Date(2020, 12, 06), ..., Date(2020, 12, 12)],</span>
+<span class="hljs-comment">//   [Date(2020, 12, 13), ..., Date(2020, 12, 19)],</span>
+<span class="hljs-comment">//   [Date(2020, 12, 20), ..., Date(2020, 12, 26)],</span>
+<span class="hljs-comment">//   [Date(2020, 12, 27), ..., Date(2020, 01, 02)],</span>
+<span class="hljs-comment">//   [Date(2021, 01, 03), ..., Date(2021, 01, 09)],</span>
+<span class="hljs-comment">// ]</span>
+
+<span class="hljs-comment">// 生成 2020-12 前面一个月的日历数据</span>
+calendar.getPreviousMonthCalendar(<span class="hljs-number">2020</span>, <span class="hljs-number">12</span>)
+<span class="hljs-comment">// -&gt;</span>
+<span class="hljs-comment">// [</span>
+<span class="hljs-comment">//   [Date(2020, 11, 01), ..., Date(2020, 11, 07)],</span>
+<span class="hljs-comment">//   [Date(2020, 11, 08), ..., Date(2020, 11, 14)],</span>
+<span class="hljs-comment">//   [Date(2020, 11, 15), ..., Date(2020, 11, 21)],</span>
+<span class="hljs-comment">//   [Date(2020, 11, 22), ..., Date(2020, 11, 28)],</span>
+<span class="hljs-comment">//   [Date(2020, 11, 29), ..., Date(2020, 11, 05)],</span>
+<span class="hljs-comment">//   [Date(2020, 12, 06), ..., Date(2020, 12, 12)],</span>
+<span class="hljs-comment">// ]</span>
+
+<span class="hljs-comment">// 生成 2020-12 后面一个月的日历数据</span>
+calendar.getNextMonthCalendar(<span class="hljs-number">2020</span>, <span class="hljs-number">12</span>)
+<span class="hljs-comment">// -&gt;</span>
+<span class="hljs-comment">// [</span>
+<span class="hljs-comment">//   [Date(2020, 12, 27), ..., Date(2021, 01, 02)],</span>
+<span class="hljs-comment">//   [Date(2021, 01, 03), ..., Date(2021, 01, 09)],</span>
+<span class="hljs-comment">//   [Date(2021, 01, 10), ..., Date(2021, 01, 16)],</span>
+<span class="hljs-comment">//   [Date(2021, 01, 17), ..., Date(2021, 01, 23)],</span>
+<span class="hljs-comment">//   [Date(2021, 01, 24), ..., Date(2021, 01, 30)],</span>
+<span class="hljs-comment">//   [Date(2021, 01, 31), ..., Date(2021, 02, 06)],</span>
+<span class="hljs-comment">// ]</span>
+
+<span class="hljs-comment">// 生成某个月的时间数据</span>
+calendar.getMonthDates(<span class="hljs-number">2020</span>, <span class="hljs-number">12</span>)
+<span class="hljs-comment">// -&gt; [Date(2020, 12, 01), ..., Date(2020, 12, 31)]</span>
+
+<span class="hljs-comment">// 生成某个周的时间数据</span>
+calendar.getMonthDates(<span class="hljs-number">2020</span>, <span class="hljs-number">12</span>, <span class="hljs-number">03</span>)
+<span class="hljs-comment">// -&gt; [Date(2020, 11, 29), ..., Date(2020, 12, 05)]</span></code></pre>
+				<a href="#license" id="license" style="color: inherit; text-decoration: none;">
+					<h2>License</h2>
+				</a>
+				<ul>
+					<li>MIT</li>
+				</ul>
+			</div>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class="globals  ">
+						<a href="globals.html"><em>Globals</em></a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_common_constants_.html">&quot;common/constants&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_common_utils_.html">&quot;common/utils&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_config_.html">&quot;config&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_core_calendar_.html">&quot;core/calendar&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_core_locale_.html">&quot;core/locale&quot;</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
+				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
+				<li class="tsd-kind-type-alias tsd-has-type-parameter"><span class="tsd-kind-icon">Type alias with type parameter</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
