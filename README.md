@@ -26,8 +26,11 @@ $ npm install @zhengxs/calendar-data --save
 ```javascript
 import calendar from '@zhengxs/calendar-data'
 
-// 全局设置每一周的开始
+// 全局设置每一周的开始（0 表示星期一，6 表示星期天）
 Calendar.config.firstWeekDay = 0
+
+// 单个日历视图上显示的周数量
+Calendar.config.visibleWeeksCount = 6
 
 // 全局设置默认语言
 Calendar.config.locale = 'cn'
@@ -41,16 +44,15 @@ Calendar.locale({
 })
 
 const calendar = Calendar.create({
-  // 每一周的开始（0 表示星期一，6 表示星期天）
-  firstWeekDay: 0,
-  // 单个日历显示的周数量
-  visibleWeeksCount: 6,
-  // 设置语言
-  locale: 'en'
+  // 默认周末开始
+  // firstWeekDay: 0,
+  // 默认6周，如果周日开始
+  // 那 2020-01-01 在日历视图上就是占用6行
+  // visibleWeeksCount: 6
 })
 
-// 获取日历上头部的内容
-calendar.getWeekHead(2020, 12)
+// 默认中文
+calendar.getWeekHead()
 // ->
 // [
 //   { name: '星期日', ..., day: 0 },
@@ -60,6 +62,19 @@ calendar.getWeekHead(2020, 12)
 //   { name: '星期四', ..., day: 4 },
 //   { name: '星期五', ..., day: 5 },
 //   { name: '星期六', ..., day: 6 },
+// ]
+
+// 国际化
+calendar.locale('en').getWeekHead()
+// ->
+// [
+//   { name: 'Sunday',    ..., day: 0 },
+//   { name: 'Monday',    ..., day: 1 },
+//   { name: 'Tuesday',   ..., day: 2 },
+//   { name: 'Wednesday', ..., day: 3 },
+//   { name: 'Thursday',  ..., day: 4 },
+//   { name: 'Friday',    ..., day: 5 },
+//   { name: 'Saturday',  ..., day: 6 },
 // ]
 
 // 生成 2020-12 月的日历数据
