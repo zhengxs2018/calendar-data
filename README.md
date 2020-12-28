@@ -24,7 +24,7 @@ $ npm install @zhengxs/calendar-data --save
 ### 使用
 
 ```javascript
-import calendar from '@zhengxs/calendar-data'
+import Calendar from '@zhengxs/calendar-data'
 
 // 全局设置每一周的开始（0 表示星期一，6 表示星期天）
 Calendar.config.firstWeekDay = 0
