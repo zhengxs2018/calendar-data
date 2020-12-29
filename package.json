@@ -1,6 +1,6 @@
 {
   "name": "@zhengxs/calendar-data",
-  "version": "0.1.0-rc.0",
+  "version": "0.1.0-rc.1",
   "description": "Calendar data generator",
   "main": "./dist/calendar-data.js",
   "module": "./dist/calendar-data.esm.js",
