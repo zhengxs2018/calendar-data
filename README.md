@@ -126,8 +126,8 @@ calendar.getMonthDates(2020, 12, 03)
 
 ## 示例
 
-- [calendar](./examples/calendar.html)
-- [date-picker](./examples/date-picker.html)
+- [calendar](./example/calendar.html)
+- [date-picker](./example/date-picker.html)
 
 ## License
 
