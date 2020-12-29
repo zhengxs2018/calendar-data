@@ -9,7 +9,6 @@
 [![Build Status](https://travis-ci.com/zhengxs2018/calendar-data.svg?branch=main)](https://travis-ci.com/zhengxs2018/calendar-data)
 ![License](https://img.shields.io/badge/license-MIT-brightgreen.svg)
 
-
 一个轻量的日历数据生成的 JavaScript 库，支持国际化的功能。支持 Nodejs 和浏览器。
 
 - 🌐 国际化 I18n
@@ -124,6 +123,11 @@ calendar.getMonthDates(2020, 12)
 calendar.getMonthDates(2020, 12, 03)
 // -> [Date(2020, 11, 29), ..., Date(2020, 12, 05)]
 ```
+
+## 示例
+
+- [calendar](./examples/calendar.html)
+- [date-picker](./examples/date-picker.html)
 
 ## License
 
