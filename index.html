@@ -63,17 +63,19 @@
 				<a href="#zhengxscalendar-data" id="zhengxscalendar-data" style="color: inherit; text-decoration: none;">
 					<h1>@zhengxs/calendar-data</h1>
 				</a>
-				<blockquote>
-					<p>支持 Nodejs 和浏览器环境运行。</p>
-				</blockquote>
 				<p><a href="https://www.typescriptlang.org/"><img src="https://img.shields.io/badge/lang-typescript-informational" alt="lang"></a>
 					<a href="https://github.com/prettier/prettier"><img src="https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square" alt="code style: prettier"></a>
 					<a href="https://www.npmjs.com/package/%40zhengxs%2Fcalendar-data"><img src="https://badge.fury.io/js/%40zhengxs%2Fcalendar-data.svg" alt="npm version"></a>
-				<a href="https://www.npmjs.com/package/%40zhengxs%2Fcalendar-data"><img src="https://img.shields.io/npm/dm/%40zhengxs%2Fcalendar-data.svg" alt="Downloads"></a></p>
-				<p>一个轻量的日历数据生成的 JavaScript 库，支持国际化的功能。</p>
+					<a href="https://www.npmjs.com/package/%40zhengxs%2Fcalendar-data"><img src="https://img.shields.io/npm/dm/%40zhengxs%2Fcalendar-data.svg" alt="Downloads"></a>
+					<a href="https://unpkg.com/@zhengxs/calendar-data/dist/calendar-data.umd.min.js"><img src="http://img.badgesize.io/https://unpkg.com/@zhengxs/calendar-data/dist/calendar-data.umd.min.js?compression=gzip" alt="Gzip Size"></a>
+					<a href="https://codecov.io/gh/zhengxs2018/calendar-data"><img src="https://codecov.io/gh/zhengxs2018/calendar-data/branch/main/graph/badge.svg?token=JBYVAK2RRG" alt="codecov"></a>
+					<a href="https://travis-ci.com/zhengxs2018/calendar-data"><img src="https://travis-ci.com/zhengxs2018/calendar-data.svg?branch=main" alt="Build Status"></a>
+				<img src="https://img.shields.io/badge/license-MIT-brightgreen.svg" alt="License"></p>
+				<p>一个轻量的日历数据生成的 JavaScript 库，支持国际化的功能。支持 Nodejs 和浏览器。</p>
 				<ul>
 					<li>🌐 国际化 I18n</li>
 				</ul>
+				<p><a href="https://juejin.cn/post/6910585443345235975/">面向初学者：如何写一个日历组件</a></p>
 				<a href="#快速开始" id="快速开始" style="color: inherit; text-decoration: none;">
 					<h2>快速开始</h2>
 				</a>
@@ -84,10 +86,13 @@
 				<a href="#使用" id="使用" style="color: inherit; text-decoration: none;">
 					<h3>使用</h3>
 				</a>
-				<pre><code class="language-javascript"><span class="hljs-keyword">import</span> calendar <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@zhengxs/calendar-data&#x27;</span>
+				<pre><code class="language-javascript"><span class="hljs-keyword">import</span> Calendar <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@zhengxs/calendar-data&#x27;</span>
 
-<span class="hljs-comment">// 全局设置每一周的开始</span>
+<span class="hljs-comment">// 全局设置每一周的开始（0 表示星期一，6 表示星期天）</span>
 Calendar.config.firstWeekDay = <span class="hljs-number">0</span>
+
+<span class="hljs-comment">// 单个日历视图上显示的周数量</span>
+Calendar.config.visibleWeeksCount = <span class="hljs-number">6</span>
 
 <span class="hljs-comment">// 全局设置默认语言</span>
 Calendar.config.locale = <span class="hljs-string">&#x27;cn&#x27;</span>
@@ -101,24 +106,37 @@ Calendar.locale({
 })
 
 <span class="hljs-keyword">const</span> calendar = Calendar.create({
-  <span class="hljs-comment">// 每一周的开始（0 表示星期一，6 表示星期天）</span>
-  <span class="hljs-attr">firstWeekDay</span>: <span class="hljs-number">0</span>,
-  <span class="hljs-comment">// 单个日历显示的周数量</span>
-  <span class="hljs-attr">visibleWeeksCount</span>: <span class="hljs-number">6</span>,
-  <span class="hljs-comment">// 设置语言</span>
-  <span class="hljs-attr">locale</span>: <span class="hljs-string">&#x27;en&#x27;</span>
+  <span class="hljs-comment">// 默认周末开始</span>
+  <span class="hljs-comment">// firstWeekDay: 0,</span>
+  <span class="hljs-comment">// 默认6周，如果周日开始</span>
+  <span class="hljs-comment">// 那 2020-01-01 在日历视图上就是占用6行</span>
+  <span class="hljs-comment">// visibleWeeksCount: 6</span>
 })
 
-<span class="hljs-comment">// 获取日历上头部的内容</span>
-calendar.getWeekHead(<span class="hljs-number">2020</span>, <span class="hljs-number">12</span>)
+<span class="hljs-comment">// 默认中文</span>
+calendar.getWeekHead()
 <span class="hljs-comment">// -&gt;</span>
 <span class="hljs-comment">// [</span>
-<span class="hljs-comment">//   [Date(2020, 11, 29), ..., Date(2020, 12, 05)],</span>
-<span class="hljs-comment">//   [Date(2020, 12, 06), ..., Date(2020, 12, 12)],</span>
-<span class="hljs-comment">//   [Date(2020, 12, 13), ..., Date(2020, 12, 19)],</span>
-<span class="hljs-comment">//   [Date(2020, 12, 20), ..., Date(2020, 12, 26)],</span>
-<span class="hljs-comment">//   [Date(2020, 12, 27), ..., Date(2020, 01, 02)],</span>
-<span class="hljs-comment">//   [Date(2021, 01, 03), ..., Date(2021, 01, 09)],</span>
+<span class="hljs-comment">//   { name: &#x27;星期日&#x27;, ..., day: 0 },</span>
+<span class="hljs-comment">//   { name: &#x27;星期一&#x27;, ..., day: 1 },</span>
+<span class="hljs-comment">//   { name: &#x27;星期二&#x27;, ..., day: 2 },</span>
+<span class="hljs-comment">//   { name: &#x27;星期三&#x27;, ..., day: 3 },</span>
+<span class="hljs-comment">//   { name: &#x27;星期四&#x27;, ..., day: 4 },</span>
+<span class="hljs-comment">//   { name: &#x27;星期五&#x27;, ..., day: 5 },</span>
+<span class="hljs-comment">//   { name: &#x27;星期六&#x27;, ..., day: 6 },</span>
+<span class="hljs-comment">// ]</span>
+
+<span class="hljs-comment">// 国际化</span>
+calendar.locale(<span class="hljs-string">&#x27;en&#x27;</span>).getWeekHead()
+<span class="hljs-comment">// -&gt;</span>
+<span class="hljs-comment">// [</span>
+<span class="hljs-comment">//   { name: &#x27;Sunday&#x27;,    ..., day: 0 },</span>
+<span class="hljs-comment">//   { name: &#x27;Monday&#x27;,    ..., day: 1 },</span>
+<span class="hljs-comment">//   { name: &#x27;Tuesday&#x27;,   ..., day: 2 },</span>
+<span class="hljs-comment">//   { name: &#x27;Wednesday&#x27;, ..., day: 3 },</span>
+<span class="hljs-comment">//   { name: &#x27;Thursday&#x27;,  ..., day: 4 },</span>
+<span class="hljs-comment">//   { name: &#x27;Friday&#x27;,    ..., day: 5 },</span>
+<span class="hljs-comment">//   { name: &#x27;Saturday&#x27;,  ..., day: 6 },</span>
 <span class="hljs-comment">// ]</span>
 
 <span class="hljs-comment">// 生成 2020-12 月的日历数据</span>
@@ -164,6 +182,13 @@ calendar.getMonthDates(<span class="hljs-number">2020</span>, <span class="hljs-
 <span class="hljs-comment">// 生成某个周的时间数据</span>
 calendar.getMonthDates(<span class="hljs-number">2020</span>, <span class="hljs-number">12</span>, <span class="hljs-number">03</span>)
 <span class="hljs-comment">// -&gt; [Date(2020, 11, 29), ..., Date(2020, 12, 05)]</span></code></pre>
+				<a href="#示例" id="示例" style="color: inherit; text-decoration: none;">
+					<h2>示例</h2>
+				</a>
+				<ul>
+					<li><a href="./example/calendar.html">calendar</a></li>
+					<li><a href="./example/date-picker.html">date-picker</a></li>
+				</ul>
 				<a href="#license" id="license" style="color: inherit; text-decoration: none;">
 					<h2>License</h2>
 				</a>

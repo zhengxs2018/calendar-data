@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Date picker Examples</title>
+
+    <link rel="stylesheet" href="css/calendar.css" />
+    <link rel="stylesheet" href="css/date-picker.css" />
+  </head>
+  <body>
+    <div>
+      <span>源码</span>
+      <a href="js/date-picker.js">date-picker.js</a>
+    </div>
+    <div>
+      <h3>基础</h3>
+      <date-picker value="2020-01-02"></date-picker>
+      <p>可以通过设置 <code>value</code> 属性设置初始值</p>
+      <code>
+        <pre></pre>
+      </code>
+    </div>
+
+    <div>
+      <h3>事件</h3>
+      <date-picker
+        oninput="handleInput(event)"
+        onchange="handleInput(event)"
+        onselect="handleSelect(event)"
+      ></date-picker>
+      <p>可以通过设置 <code>oninput</code> 属性或 <code>input</code> 事件监听输入框的值变化</p>
+      <p>可以通过设置 <code>onselect</code> 属性或 <code>select</code> 事件监听日期选中</p>
+      <p>可以通过设置 <code>onchange</code> 属性或 <code>change</code> 事件监听最终变化</p>
+    </div>
+
+    <div>
+      <h3>只读</h3>
+      <date-picker value="2020-01-01" readonly></date-picker>
+      <p>可以通过 <code>readonly</code> 属性设为只读状态</p>
+    </div>
+
+    <div>
+      <h3>禁用</h3>
+      <date-picker value="2020-01-01" disabled></date-picker>
+      <p>可以通过 <code>disabled</code> 属性设为禁用状态</p>
+    </div>
+
+    <script src="js/vendor/lodash.min.js"></script>
+    <script src="js/vendor/dayjs.min.js"></script>
+    <script src="js/vendor/calendar-data.js"></script>
+    <script src="js/date-picker.js"></script>
+    <script>
+      function handleInput(event) {
+        const data = event.detail
+        console.log('change:', `${data.year}/${data.month}/${data.date}`)
+      }
+
+      function handleChange(event) {
+        const data = event.detail
+        console.log('change:', `${data.year}/${data.month}/${data.date}`)
+      }
+
+      function handleSelect(event) {
+        const data = event.detail
+        console.log('select:', `${data.year}/${data.month}/${data.date}`)
+      }
+    </script>
+  </body>
+</html>
