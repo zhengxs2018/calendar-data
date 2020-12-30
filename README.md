@@ -126,8 +126,10 @@ calendar.getMonthDates(2020, 12, 03)
 
 ## 示例
 
-- [calendar](./example/calendar.html)
-- [date-picker](./example/date-picker.html)
+代码都在 `examples` 目录
+
+- [calendar](./examples/calendar.html)
+- [date-picker](https://zhengxs2018.github.io/calendar-data/date-picker.html)
 
 ## License
 
