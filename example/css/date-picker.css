@@ -7,8 +7,6 @@ date-picker {
   position: absolute;
   z-index: 10;
   display: none;
-  padding: 4px;
-  width: 248px;
   border: 1px solid #e4eaf2;
   border-radius: 4px;
   background-color: #fff;
@@ -55,6 +53,11 @@ date-picker {
   right: 10px;
 }
 
+.date-picker .calendar-table {
+  max-width: 255px;
+  padding: 4px;
+}
+
 .date-picker .calendar-table .next span,
 .date-picker .calendar-table .prev span {
   color: #6c757d;
@@ -97,16 +100,46 @@ date-picker {
   background-color: #727cf5;
 }
 
-.date-picker .calendar-table td.active,
-.date-picker .calendar-table td.in-range {
+.date-picker .calendar-table td.active {
   color: #fff;
   background-color: #727cf5;
 }
 
-.date-picker .calendar-table td.end-date:not(.start-date) {
-  border-radius: 4px 0 0 4px;
+/* ==== 范围选择器样式 ==== */
+
+.date-picker.ranges {
+  width: 510px;
 }
 
-.date-picker .calendar-table td.start-date:not(.end-date) {
+.date-picker.ranges .calendar-table.left,
+.date-picker.ranges .calendar-table.right {
+  float: left;
+}
+
+.date-picker.ranges .calendar-table.left {
+  margin-right: 0;
+  clear: none;
+}
+
+.date-picker.ranges .calendar-table.left {
+  border-right: 1px solid #e4eaf2;
+}
+
+.date-picker.ranges .calendar-table td.in-range {
+  border-radius: 0;
+}
+
+.date-picker.ranges .calendar-table td.in-range,
+.date-picker.ranges .calendar-table td.start-date,
+.date-picker.ranges .calendar-table td.end-date {
+  color: #fff;
+  background-color: #727cf5;
+}
+
+.date-picker.ranges .calendar-table td.end-date:not(.start-date) {
   border-radius: 0 4px 4px 0;
+}
+
+.date-picker.ranges .calendar-table td.start-date:not(.end-date) {
+  border-radius: 4px 0 0 4px;
 }
