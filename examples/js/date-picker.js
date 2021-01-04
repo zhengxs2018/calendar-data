@@ -339,7 +339,7 @@ class DatePicker extends HTMLElement {
   handlePreviousMonth() {
     const state = this.state
     const [year, month] = calendar_data.getPreviousMonth(state.year, state.month)
-    this.renderMonthCalendar(year, month)
+    this.setState({ year, month })
   }
 
   /**
@@ -350,7 +350,7 @@ class DatePicker extends HTMLElement {
   handleNextMonth() {
     const state = this.state
     const [year, month] = calendar_data.getNextMonth(state.year, state.month)
-    this.renderMonthCalendar(year, month)
+    this.setState({ year, month })
   }
 
   /**
