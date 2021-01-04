@@ -1,12 +1,33 @@
 import config from '../config'
-import { getWeekdays, getPreviousMonth, getNextMonth, getMonthDayCount } from '../common/utils'
+import {
+  compare,
+  CompareResult,
+  getWeekdays,
+  getPreviousMonth,
+  getNextMonth,
+  getMonthDayCount
+} from '../common/utils'
 
 import { Locale, parseLocale } from './locale'
+
+export interface DateObj {
+  year: number
+  month: number
+  date: number
+}
+
+export interface Cell extends DateObj, CompareResult {
+  isToday: boolean
+}
+
+export interface IterateeContext extends Omit<DateObj, 'date'> {
+  cell: () => Cell
+}
 
 /**
  * 用于生成最终数据结构的迭代器
  */
-export type Iteratee<T> = (date: Date, ctx: { year: number; month: number }) => T
+export type Iteratee<T> = (date: Date, ctx: IterateeContext) => T
 
 export interface CalendarOptions<T = Date> {
   firstWeekDay?: number
@@ -96,13 +117,45 @@ export class Calendar<T = Date> {
     const iteratee = this.iteratee
     const count = this.visibleWeeksCount * 7
 
+    const now = new Date()
+
+    const nowObj = {
+      year: now.getFullYear(),
+      month: now.getMonth() + 1,
+      date: now.getDate()
+    }
+
     let week = []
 
-    this.unstable_iterDates(year, month, 1, count, true, (date, i) => {
+    this.unstable_iterDates(year, month, 1, count, true, (dateObj, i) => {
       if (!(i % 7)) {
         week = calendar[i / 7] = []
       }
-      week.push(iteratee(date, { year, month }))
+
+      week.push(
+        iteratee(dateObj, {
+          year: year,
+          month: month,
+          cell() {
+            const curYear = dateObj.getFullYear()
+            const curMonth = dateObj.getMonth() + 1
+            const curDate = dateObj.getDate()
+
+            const result = compare(curYear, curMonth, year, month)
+            const { inMonth } = compare(curYear, curMonth, nowObj.year, nowObj.month)
+
+            const data: Cell = {
+              ...result,
+              year: curYear,
+              month: curMonth,
+              date: curDate,
+              isToday: inMonth && curDate === nowObj.date
+            }
+
+            return data
+          }
+        })
+      )
     })
 
     return calendar
