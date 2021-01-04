@@ -115,3 +115,74 @@ export function getNextMonth(year: number, month: number): [number, number] {
 export function isObject<T = object>(obj: unknown): obj is T {
   return obj !== null && typeof obj === 'object'
 }
+
+export type CompareResult = {
+  /**
+   * 在本年内
+   */
+  inYear: boolean
+  /**
+   * 是上一个年
+   */
+  isPreviousYear: boolean
+  /**
+   * 是下一个年
+   */
+  isNextYear: boolean
+  /**
+   * 是上一个月
+   */
+  isPreviousMonth: boolean
+  /**
+   * 是下一个月
+   */
+  isNextMonth: boolean
+  /**
+   * 本月内
+   */
+  inMonth: boolean
+}
+
+/**
+ * 年月比较
+ *
+ * @param year
+ * @param month
+ * @param targetYear
+ * @param targetMonth
+ */
+export function compare(
+  year: number,
+  month: number,
+  targetYear: number,
+  targetMonth: number
+): CompareResult {
+  const result: CompareResult = {
+    isPreviousYear: false,
+    inYear: false,
+    isNextYear: false,
+    isPreviousMonth: false,
+    inMonth: false,
+    isNextMonth: false
+  }
+
+  if (year === targetYear) {
+    result.inYear = true
+
+    if (month < targetMonth) {
+      result.isPreviousMonth = true
+    } else if (month > targetMonth) {
+      result.isNextMonth = true
+    } else {
+      result.inMonth = true
+    }
+  } else if (year > targetYear) {
+    result.isPreviousYear = true
+    result.isPreviousMonth = true
+  } else {
+    result.isNextYear = true
+    result.isNextMonth = true
+  }
+
+  return result
+}
