@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>CalendarOptions | @zhengxs/calendar-data</title>
+	<title>IterateeContext | @zhengxs/calendar-data</title>
 	<meta name="description" content="Documentation for @zhengxs/calendar-data">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -52,29 +52,26 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="calendaroptions.html">CalendarOptions</a>
+					<a href="iterateecontext.html">IterateeContext</a>
 				</li>
 			</ul>
-			<h1>Interface CalendarOptions&lt;T&gt;</h1>
+			<h1>Interface IterateeContext</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
-			<section class="tsd-panel tsd-type-parameters">
-				<h3>Type parameters</h3>
-				<ul class="tsd-type-parameters">
-					<li>
-						<h4>T = <span class="tsd-signature-type">Date</span></h4>
-					</li>
-				</ul>
-			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">CalendarOptions</span>
+						<span class="tsd-signature-symbol">{}</span>
+						<ul class="tsd-hierarchy">
+							<li>
+								<span class="target">IterateeContext</span>
+							</li>
+						</ul>
 					</li>
 				</ul>
 			</section>
@@ -85,10 +82,7 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="calendaroptions.html#firstweekday" class="tsd-kind-icon">first<wbr>Week<wbr>Day</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="calendaroptions.html#iteratee" class="tsd-kind-icon">iteratee</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="calendaroptions.html#locale" class="tsd-kind-icon">locale</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="calendaroptions.html#visibleweekscount" class="tsd-kind-icon">visible<wbr>Weeks<wbr>Count</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="iterateecontext.html#cell" class="tsd-kind-icon">cell</a></li>
 							</ul>
 						</section>
 					</div>
@@ -97,44 +91,29 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="firstweekday" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> first<wbr>Week<wbr>Day</h3>
-					<div class="tsd-signature tsd-kind-icon">first<wbr>Week<wbr>Day<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></div>
+					<a name="cell" class="tsd-anchor"></a>
+					<h3>cell</h3>
+					<div class="tsd-signature tsd-kind-icon">cell<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><a href="cell.html" class="tsd-signature-type">Cell</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/zhengxs2018/calendar-data/blob/master/src/core/calendar.ts#L33">core/calendar.ts:33</a></li>
+							<li>Defined in <a href="https://github.com/zhengxs2018/calendar-data/blob/master/src/core/calendar.ts#L24">core/calendar.ts:24</a></li>
 						</ul>
 					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="iteratee" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> iteratee</h3>
-					<div class="tsd-signature tsd-kind-icon">iteratee<span class="tsd-signature-symbol">:</span> <a href="../globals.html#iteratee" class="tsd-signature-type">Iteratee</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/zhengxs2018/calendar-data/blob/master/src/core/calendar.ts#L36">core/calendar.ts:36</a></li>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter-signature">
+								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-property">
+									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="cell.html" class="tsd-signature-type">Cell</a></li>
+								</ul>
+								<ul class="tsd-descriptions">
+									<li class="tsd-description">
+										<h4 class="tsd-returns-title">Returns <a href="cell.html" class="tsd-signature-type">Cell</a></h4>
+									</li>
+								</ul>
+							</li>
 						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="locale" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> locale</h3>
-					<div class="tsd-signature tsd-kind-icon">locale<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><a href="locale.html" class="tsd-signature-type">Locale</a></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/zhengxs2018/calendar-data/blob/master/src/core/calendar.ts#L35">core/calendar.ts:35</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="visibleweekscount" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> visible<wbr>Weeks<wbr>Count</h3>
-					<div class="tsd-signature tsd-kind-icon">visible<wbr>Weeks<wbr>Count<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/zhengxs2018/calendar-data/blob/master/src/core/calendar.ts#L34">core/calendar.ts:34</a></li>
-						</ul>
-					</aside>
+					</div>
 				</section>
 			</section>
 		</div>
@@ -151,36 +130,27 @@
 					<li class=" tsd-kind-class tsd-has-type-parameter">
 						<a href="../classes/calendar.html" class="tsd-kind-icon">Calendar</a>
 					</li>
-				</ul>
-				<ul class="current">
-					<li class="current tsd-kind-interface tsd-has-type-parameter">
+					<li class=" tsd-kind-interface tsd-has-type-parameter">
 						<a href="calendaroptions.html" class="tsd-kind-icon">Calendar<wbr>Options</a>
-						<ul>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="calendaroptions.html#firstweekday" class="tsd-kind-icon">first<wbr>Week<wbr>Day</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="calendaroptions.html#iteratee" class="tsd-kind-icon">iteratee</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="calendaroptions.html#locale" class="tsd-kind-icon">locale</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="calendaroptions.html#visibleweekscount" class="tsd-kind-icon">visible<wbr>Weeks<wbr>Count</a>
-							</li>
-						</ul>
 					</li>
-				</ul>
-				<ul class="after-current">
 					<li class=" tsd-kind-interface">
 						<a href="cell.html" class="tsd-kind-icon">Cell</a>
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="dateobj.html" class="tsd-kind-icon">Date<wbr>Obj</a>
 					</li>
-					<li class=" tsd-kind-interface">
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-interface">
 						<a href="iterateecontext.html" class="tsd-kind-icon">Iteratee<wbr>Context</a>
+						<ul>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="iterateecontext.html#cell" class="tsd-kind-icon">cell</a>
+							</li>
+						</ul>
 					</li>
+				</ul>
+				<ul class="after-current">
 					<li class=" tsd-kind-interface">
 						<a href="locale.html" class="tsd-kind-icon">Locale</a>
 					</li>
