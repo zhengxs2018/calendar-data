@@ -1,6 +1,5 @@
 const template = tpl`
   <input class="input" type="text" />
-
   <div class="date-picker open-left">
     <table class="calendar-table">
       <thead>
